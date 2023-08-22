@@ -4,6 +4,7 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWWS6Q48P7"></script>
+  <script defer async src="https://integrate.depay.com/widgets/v11.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -67,7 +68,8 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#contact" class="get-started-btn scrollto">Get free POOPTIN</a>
+      <!--<a href="#contact" class="get-started-btn scrollto">Get free POOPTIN</a>-->
+      <button class='get-started-btn scrollto' id="buyPOOPTIN">Buy POOPTIN</button>
 
     </div>
   </header>
@@ -316,6 +318,28 @@
           </div>
 
         </div>
+
+
+
+
+
+
+                <script>
+                  var button = document.getElementById("buyPOOPTIN");
+                  button.addEventListener("click",function(e){
+                    DePayWidgets.Payment({
+  integration: 'a1f694f0-2636-422d-a6aa-a4c8a56369df',
+  accept:[
+    {
+      blockchain: 'ethereum',
+      amount: 0.01,
+      token: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+      receiver: '0x520f5c9C211d9f1E23a9418101DC3e317CF10db4'
+    }
+  ]
+})
+                  });
+                </script>
 
       </div>
     </section>
